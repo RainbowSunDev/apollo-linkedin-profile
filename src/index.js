@@ -14,10 +14,8 @@ import { makeId } from './utils/ids.js'
 
 const apolloKey = process.env.APOLLO_KEY;
 const APP_ID = `${conf.app} ${conf.version} ${conf.env}`
-console.log("APP_id", APP_ID)
 
 async function run({ input, type }) {
-  console.log("run_APP_id", APP_ID)
   log.info(`${APP_ID} running...`)
   const body = JSON.parse(await readFile(input))
 

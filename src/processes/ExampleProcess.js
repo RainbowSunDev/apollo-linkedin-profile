@@ -9,11 +9,9 @@ class ExampleProcess extends Process {
   }
 
   async run(message) {
-    // this.log.info(message)
     const response = await getProfileData(message)
-    console.log("response", response)
     if (response.success) {
-      // return success({ example_id: makeId('ex'), example_output: 'Output object from ExampleProcess' })
+      return success({ example_id: makeId('ex'), example_output: 'Output object from ExampleProcess', profile: response.data })
     }
     return failure('ExampleProcess failed')
   }

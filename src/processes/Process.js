@@ -15,7 +15,6 @@ class Process {
   }
 
   match(message) {
-    console.log("this._name", this._name)
     // can be overridden in child class for more control
     return message.headers?.type === this._name
   }

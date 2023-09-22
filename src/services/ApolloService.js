@@ -4,8 +4,6 @@ import Profile from '#src/models/Profile.js';
 
 async function getProfileData(message) {
 
-    const user = new Profile();
-    
     const email = message.body.email;
     const API_ENDPOINT = "https://api.apollo.io/v1/people/match";
     const apolloKey = message.apolloKey;
@@ -25,17 +23,11 @@ async function getProfileData(message) {
             responseType: 'json',
             json: sendData,
         });
-
-        // Assuming the response body is already a JSON object
-        const data = response.body;
-
-        if (data && Object.keys(data).length) {
-            let formattedData = {};
-            for (const key in data) {
-                const snakeCaseKey = key.replace(/([A-Z])/g, "_$1").toLowerCase();
-                formattedData[snakeCaseKey] = data[key];
-            }
-            return success(formattedData);
+        const userData = response.body.person;
+        console.log("response:", userData)
+        if (userData && userData.first_name !== "") {
+            const user = new Profile(userData);
+            return success(user);
         } else {
             return failure("no match found");
         }
