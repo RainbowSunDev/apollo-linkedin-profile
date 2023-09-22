@@ -1,0 +1,43 @@
+{
+  "name": "integration-module",
+  "version": "0.0.1",
+  "description": "Shuttle integration module base",
+  "main": "src/index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -r dotenv/config src/index.js"
+  },
+  "nodemonConfig": {
+    "ext": "js,cjs,json"
+  },
+  "keywords": [
+    "shuttle",
+    "module"
+  ],
+  "author": "Shuttle",
+  "license": "UNLICENSED",
+  "imports": {
+    "#src/*.js": "./src/*.js"
+  },
+  "devDependencies": {
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "nodemon": "^2.0.20",
+    "pino-pretty": "^10.0.0",
+    "prettier": "^2.8.3"
+  },
+  "dependencies": {
+    "boolean": "^3.2.0",
+    "dotenv": "^8.6.0",
+    "express": "^4.18.2",
+    "got": "^13.0.0",
+    "nanoid": "^4.0.1",
+    "pino": "^8.14.1",
+    "pretty-time": "^1.1.0",
+    "yargs": "^17.7.2"
+  }
+}
